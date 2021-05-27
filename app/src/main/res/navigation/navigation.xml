@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/phoneList">
+    <fragment
+        android:id="@+id/phoneList"
+        android:name="com.example.phonebook.PhoneList"
+        android:label="PhoneList" >
+        <action
+            android:id="@+id/action_phoneList_to_editContactFragment"
+            app:destination="@id/editContactFragment" />
+        <argument
+            android:name="newName"
+            app:argType="string" />
+        <argument
+            android:name="newNumber"
+            app:argType="string" />
+        <argument
+            android:name="contactId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/editContactFragment"
+        android:name="com.example.phonebook.EditContactFragment"
+        android:label="fragment_edit_contact"
+        tools:layout="@layout/fragment_edit_contact" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="number"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editContactFragment_to_phoneList"
+            app:destination="@id/phoneList" />
+        <argument
+            android:name="contactid"
+            app:argType="string" />
+    </fragment>
+</navigation>
